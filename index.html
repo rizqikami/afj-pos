@@ -9,9 +9,9 @@
         :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; }
         body { font-family: sans-serif; margin: 0; padding: 10px; background: #f0f2f5; }
         .panel { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 10px; }
-        #reader { width: 100%; border-radius: 8px; background: #000; overflow: hidden; }
-        .btn-cam { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; margin: 10px 0; cursor: pointer; }
-        #status { text-align: center; padding: 10px; font-weight: bold; border-radius: 8px; min-height: 20px; margin: 5px 0; }
+        #reader { width: 100%; border-radius: 8px; background: #000; overflow: hidden; margin-bottom: 10px; }
+        .btn-cam { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; margin-bottom: 10px; cursor: pointer; }
+        #status { text-align: center; padding: 10px; font-weight: bold; border-radius: 8px; min-height: 20px; margin-bottom: 10px; }
         .success { background: #e6ffed; color: #28a745; border: 1px solid #28a745; }
         .error { background: #fff0f0; color: #dc3545; border: 1px solid #dc3545; }
         input, select { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
@@ -20,29 +20,34 @@
     </style>
 </head>
 <body>
+
 <div class="panel">
     <h3 style="margin:0 0 10px 0; text-align:center;">SIMULATOR BELANJA AFJ</h3>
+    
     <div id="reader"></div>
     <button class="btn-cam" onclick="startScan()">📸 AKTIFKAN KAMERA SCANNER</button>
+    
     <div id="status"></div>
-    <input type="text" id="manual-input" placeholder="Ketik Nama Barang / Scan Barcode..." onkeyup="checkInput()">
+    
+    <input type="text" id="manual-input" placeholder="Ketik Nama Barang / Kode..." onkeyup="checkInput()">
     <select id="manual-select" onchange="addFromSelect()">
-        <option value="">-- Hasil Pencarian Akan Muncul Di Sini --</option>
+        <option value="">-- Hasil pencarian muncul di sini --</option>
     </select>
 </div>
 
 <div class="panel">
-    <h3>🛒 Keranjang</h3>
+    <h3>🛒 Keranjang Belanja</h3>
     <div id="cart-list"></div>
     <div class="total-box">Total: Rp <span id="grand-total">0</span></div>
-    <button onclick="resetCart()" style="width:100%; padding:12px; background:var(--danger); color:white; border:none; border-radius:8px; margin-top:10px; font-weight:bold;">RESET KERANJANG</button>
+    <button onclick="resetCart()" style="width:100%; padding:12px; background:var(--danger); color:white; border:none; border-radius:8px; margin-top:10px; font-weight:bold;">HAPUS SEMUA</button>
 </div>
 
 <script>
-// DAFTAR PRODUK (Hanya contoh, pastikan 841 produk Anda tetap ada di sini)
+// ==========================================
+// TEMPEL DATA PRODUK ANDA DI ANTARA KURUNG [ ] DI BAWAH INI
+// ==========================================
 const products = [
- [
-      { id: 1, nama: "Akumo Chicken Nugget (250gr)", harga: 13500 },
+    { id: 1, nama: "Akumo Chicken Nugget (250gr)", harga: 13500 },
       { id: 2, nama: "Akumo Chicken Nugget (500gr)", harga: 24000 },
       { id: 3, nama: "Akumo Chicken Stick (500gr)", harga: 25500 },
       { id: 4, nama: "Akumo Chicken Stik (250gr)", harga: 13500 },
@@ -454,30 +459,25 @@ const products = [
       { id: 410, nama: "Zaitun Sosis Beef Breakfast (500gr)", harga: 72000 },
       { id: 411, nama: "Zaitun Spicy Wing (500gr)", harga: 45500 },
       { id: 412, nama: "Zaitun Stikie Cheese (500gr)", harga: 39000 }
-    ];
- 
 ];
 
 let cart = [];
 let html5QrCode;
 
-// FUNGSI PENCARIAN (LIVE SEARCH)
+// 1. FUNGSI PENCARIAN (LIVE SEARCH)
 function checkInput() {
     const query = document.getElementById('manual-input').value.toLowerCase();
     const sel = document.getElementById('manual-select');
     
-    // Jika input kosong, bersihkan pilihan
     if (query.length < 2) {
         sel.innerHTML = '<option value="">-- Ketik minimal 2 huruf --</option>';
         return;
     }
 
-    // Filter produk berdasarkan nama atau ID
     const matches = products.filter(p => 
-        p.n.toLowerCase().includes(query) || p.id.includes(query)
+        p.n.toLowerCase().includes(query) || p.id.toString().includes(query)
     );
 
-    // Tampilkan hasil di Dropdown
     sel.innerHTML = '<option value="">Ditemukan (' + matches.length + ') barang:</option>';
     matches.forEach(p => {
         let o = document.createElement('option');
@@ -487,50 +487,79 @@ function checkInput() {
     });
 }
 
-// TAMBAH KE KERANJANG DARI DROPDOWN
+// 2. TAMBAH BARANG DARI HASIL PENCARIAN
 function addFromSelect() {
     const id = document.getElementById('manual-select').value;
     if (id) {
         addToCart(id);
-        document.getElementById('manual-input').value = ""; // Reset input
+        document.getElementById('manual-input').value = ""; 
+        document.getElementById('manual-select').innerHTML = '<option value="">-- Berhasil ditambah! --</option>';
     }
 }
 
+// 3. FUNGSI SCANNER
 function startScan() {
-    html5QrCode = new Html5Qrcode("reader");
-    html5QrCode.start({facingMode: "environment"}, {fps: 10, qrbox: 250}, (txt) => {
-        addToCart(txt);
-    }).catch(err => alert("Gunakan link HTTPS!"));
+    if (html5QrCode) {
+        html5QrCode.stop().then(() => { proceedScan(); }).catch(() => { proceedScan(); });
+    } else {
+        proceedScan();
+    }
 }
 
+function proceedScan() {
+    html5QrCode = new Html5Qrcode("reader");
+    html5QrCode.start(
+        { facingMode: "environment" }, 
+        { fps: 10, qrbox: 250 },
+        (txt) => { addToCart(txt); }
+    ).catch(err => {
+        alert("Gagal akses kamera. Pastikan izin aktif & gunakan link HTTPS (GitHub Pages)");
+    });
+}
+
+// 4. LOGIKA KERANJANG
 function addToCart(barcode) {
     const item = products.find(p => p.id == barcode.trim());
     const stat = document.getElementById('status');
+    
     if(item) {
-        stat.innerText = "Ditambah: " + item.n; stat.className = "success";
+        stat.innerText = "Berhasil: " + item.n; 
+        stat.className = "success";
         const idx = cart.findIndex(c => c.id === item.id);
-        if(idx !== -1) { cart[idx].q += 1; } else { cart.unshift({...item, q: 1}); }
+        if(idx !== -1) { 
+            cart[idx].q += 1; 
+        } else { 
+            cart.unshift({...item, q: 1}); 
+        }
     } else {
-        stat.innerText = "Barang Tidak Ditemukan!"; stat.className = "error";
+        stat.innerText = "Barang tidak terdaftar!"; 
+        stat.className = "error";
     }
+    
     renderCart();
     setTimeout(() => { stat.innerText = ""; stat.className = ""; }, 2000);
 }
 
 function renderCart() {
     const list = document.getElementById('cart-list');
-    if(cart.length === 0) { list.innerHTML = "<p>Keranjang kosong</p>"; return; }
+    if(cart.length === 0) { 
+        list.innerHTML = "<p style='text-align:center; color:#999;'>Keranjang masih kosong</p>"; 
+        document.getElementById('grand-total').innerText = "0";
+        return; 
+    }
+    
     list.innerHTML = cart.map((c, i) => `
         <div class="cart-item">
-            <div style="flex:1"><b>${c.n}</b><br>Rp ${c.p.toLocaleString()}</div>
-            <div style="display:flex; align-items:center; gap:10px;">
-                <button onclick="updateQty(${i},-1)">-</button>
+            <div style="flex:1"><b>${c.n}</b><br><small>Rp ${c.p.toLocaleString()}</small></div>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <button onclick="updateQty(${i},-1)" style="padding:5px 10px;">-</button>
                 <b>${c.q}</b>
-                <button onclick="updateQty(${i},1)">+</button>
+                <button onclick="updateQty(${i},1)" style="padding:5px 10px;">+</button>
             </div>
             <div style="width:80px; text-align:right;"><b>${(c.p*c.q).toLocaleString()}</b></div>
         </div>
     `).join('');
+    
     const total = cart.reduce((s, c) => s + (c.p * c.q), 0);
     document.getElementById('grand-total').innerText = total.toLocaleString();
 }
@@ -541,7 +570,13 @@ function updateQty(i, d) {
     renderCart();
 }
 
-function resetCart() { if(confirm("Hapus semua?")) { cart = []; renderCart(); } }
+function resetCart() { 
+    if(confirm("Kosongkan keranjang?")) { 
+        cart = []; 
+        renderCart(); 
+    } 
+}
 </script>
+
 </body>
 </html>

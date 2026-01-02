@@ -3,209 +3,173 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFJ POS System</title>
+    <title>AFJ POS System Pro</title>
     <script src="https://unpkg.com/html5-qrcode"></script>
     <style>
-        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; }
-        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 10px; background: #f0f2f5; color: #333; }
+        :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --warning: #fbbc04; }
+        body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 10px; background-color: #f0f2f5; color: #333; }
+        .header-title { text-align: center; color: var(--primary); font-size: 1.4em; font-weight: bold; margin: 10px 0; text-transform: uppercase; }
         .panel { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 15px; }
+        
+        /* Scanner UI */
         #reader { width: 100%; border-radius: 8px; overflow: hidden; background: #000; }
-        .btn-cam { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; margin: 10px 0; font-size: 16px; }
-        #status-msg { text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; margin-bottom: 10px; display: none; }
+        .btn-cam { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin: 10px 0; font-size: 16px; }
+        #btn-flash { width: 100%; padding: 12px; background: var(--warning); color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-bottom: 15px; display: none; }
+        
+        /* Notifikasi Stabil (Anti-Goyang) */
+        #status-msg { text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; margin-bottom: 10px; display: none; border: 2px solid transparent; min-height: 24px; }
+        
+        /* Input & Dropdown */
         input, select { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        input:focus { border-color: var(--primary); outline: none; }
+
+        /* Keranjang */
         .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
-        .total-box { font-size: 2em; font-weight: bold; color: var(--primary); text-align: right; padding-top: 15px; border-top: 2px solid #eee; }
-        .qty-btn { width: 30px; height: 30px; border-radius: 50%; border: 1px solid #ddd; background: white; }
+        .qty-btn { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ddd; background: white; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .total-box { font-size: 2em; font-weight: bold; color: var(--primary); text-align: right; padding-top: 15px; border-top: 3px solid #eee; margin-top: 10px; }
     </style>
 </head>
 <body>
 
+<div class="header-title">🛒 AFJ POS SYSTEM</div>
+
 <div class="panel">
-    <h3 style="text-align:center; margin-top:0;">🛒 AFJ POS SYSTEM</h3>
     <div id="reader"></div>
-    <button class="btn-cam" onclick="startScanner()">📸 SCAN BARCODE</button>
+    <button class="btn-cam" onclick="startScanner()">📸 BUKA SCANNER</button>
+    <button id="btn-flash" onclick="toggleFlash()">🔦 NYALAKAN LAMPU</button>
+    
     <div id="status-msg"></div>
     
-    <input type="text" id="input-cari" placeholder="Ketik Barcode / Nama..." onkeyup="filterCepat()">
+    <label style="font-size: 0.85em; font-weight: bold; color: #666;">Cari Nama Barang / Scan Barcode:</label>
+    <input type="text" id="input-cari" placeholder="Ketik 'Aice' atau scan..." onkeyup="filterCepat()">
+    
     <select id="select-produk" onchange="tambahViaPilihan()">
-        <option value="">-- Pilih Barang (A-Z) --</option>
+        <option value="">-- Memuat Data... --</option>
     </select>
 </div>
 
 <div class="panel">
-    <h3>📦 Keranjang</h3>
-    <div id="keranjang-list"></div>
+    <h3>📦 Keranjang Belanja</h3>
+    <div id="keranjang-list">
+        <p style="text-align:center; color:#999;">Belum ada barang di keranjang.</p>
+    </div>
     <div class="total-box">Rp <span id="total-harga">0</span></div>
-    <button onclick="resetCart()" style="width:100%; padding:12px; background:var(--danger); color:white; border:none; border-radius:8px; margin-top:15px; font-weight:bold;">KOSONGKAN KERANJANG</button>
+    <button onclick="resetCart()" style="width:100%; padding:15px; background:var(--danger); color:white; border:none; border-radius:8px; margin-top:15px; font-weight:bold; cursor:pointer;">KOSONGKAN KERANJANG</button>
 </div>
 
+<script src="produk.js?v=1.0"></script>
+
 <script>
-// ======================================================
-// BAGIAN DATA PRODUK (TEMPEL DATA DARI SAYA DI SINI)
-// ======================================================
-const daftarProduk = [
-    {barcode: "711844110144", nama: "ABC Kecap Manis Pouch (300gr)", harga: 11000},
-{barcode: "711844130111", nama: "ABC Saos Tomat (135ml)", harga: 6650},
-{barcode: "8885013131161", nama: "Aice 3 In 1 (160ml)", harga: 10000},
-{barcode: "8997033170140", nama: "Aice Bingo Aice Chocolate (40gr)", harga: 2500},
-{barcode: "8885013131895", nama: "Aice Bingo Cookies Cone (100ml)", harga: 6000},
-{barcode: "8885013131925", nama: "Aice Blueberry Cookies Stick (65gr)", harga: 6000},
-{barcode: "12346", nama: "Aice Brown Sugar Boba", harga: 6000},
-{barcode: "8885013132083", nama: "Aice Choco Malt Stick (49ml)", harga: 2000},
-{barcode: "8885013131369", nama: "Aice Choco Melt (100ml)", harga: 5000},
-{barcode: "8885013130997", nama: "Aice Chocolate 2 Colors (50ml)", harga: 3000},
-{barcode: "8885013130058", nama: "Aice Chocolate Crispy (60gr)", harga: 5000},
-{barcode: "8885013131727", nama: "Aice Chocolate Max Cone (100ml)", harga: 7000},
-{barcode: "8885013130485", nama: "Aice Coffe Crispy (45gr)", harga: 3000},
-{barcode: "8885013131239", nama: "Aice Cookies (65gr)", harga: 4000},
-{barcode: "8885013130027", nama: "Aice Corn (52gr)", harga: 4000},
-{barcode: "8885013130546", nama: "Aice Durian Cup (100ml)", harga: 8000},
-{barcode: "8885013131666", nama: "Aice Durian Stick (65gr)", harga: 4000},
-{barcode: "8885013131987", nama: "Aice Fruizzy Blueberry (35gr)", harga: 2000},
-{barcode: "12347", nama: "Aice Hysteria (70ml)", harga: 10000},
-{barcode: "8885013131499", nama: "Aice Lilin (60ml)", harga: 2000},
-{barcode: "8885013130010", nama: "Aice Mango Slush (65gr)", harga: 4000},
-{barcode: "8885013131109", nama: "Aice Mango Slush Low Fat (65gr)", harga: 5000},
-{barcode: "8885013131017", nama: "Aice Milk Melon (50ml)", harga: 3000},
-{barcode: "8885013131758", nama: "Aice Mochi Chocolate (30gr)", harga: 3500},
-{barcode: "8885013131765", nama: "Aice Mochi Durian (30gr)", harga: 3500},
-{barcode: "8885013131079", nama: "Aice Mochi Klepon (30gr)", harga: 3500},
-{barcode: "8885013131147", nama: "Aice Mochi Peach (30gr)", harga: 3500},
-{barcode: "8885013130980", nama: "Aice Mochi Strawberry (30gr)", harga: 3500},
-{barcode: "8885013131116", nama: "Aice Mochi Vanilla (30gr)", harga: 3500},
-{barcode: "8885013130638", nama: "Aice Mochi Zesty (30gr)", harga: 3500},
-{barcode: "8885013130119", nama: "Aice Nanas (65gr)", harga: 2000},
-{barcode: "8885013131437", nama: "Aice Obaba (60gr)", harga: 5000},
-{barcode: "8885013130454", nama: "Aice Semangka (65gr)", harga: 3000},
-{barcode: "8885013131956", nama: "Aice Shio (75ml)", harga: 6000},
-{barcode: "8885013131611", nama: "Aice Strawberry Crispy (60gr)", harga: 5000},
-{barcode: "8885013131550", nama: "Aice Sundae Choco (100ml)", harga: 6000},
-{barcode: "8885013131581", nama: "Aice Sundae Strawberry (100ml)", harga: 6000},
-{barcode: "8885013130416", nama: "Aice Sweet Corn (52gr)", harga: 4000},
-{barcode: "8885013130577", nama: "Aice Taro Cup (100ml)", harga: 8000},
-{barcode: "8885013130102", nama: "Aice Taro Stick (65gr)", harga: 3000},
-{barcode: "8885013132045", nama: "Aice Togua (65gr)", harga: 4000},
-{barcode: "8997033170041", nama: "Aice Torch (75ml)", harga: 10000},
-{barcode: "8885013131802", nama: "Aice Vanilla Choco (65gr)", harga: 4000},
-{barcode: "12338", nama: "Alat panggang ", harga: 65000},
-{barcode: "12301", nama: "Alpukat (1kg)", harga: 18000},
-{barcode: "12339", nama: "Alumunium foil 30cmx5m", harga: 15500},
-{barcode: "12340", nama: "Alumunium foil 45cmx5m", harga: 18500},
-{barcode: "8992696404434", nama: "Amunizer (4gr)", harga: 2500},
-{barcode: "8993022131234", nama: "Anget Sari Susu Jahe (28gr)", harga: 2000},
-{barcode: "8992761121102", nama: "Aqua (1500ml)", harga: 6500},
-{barcode: "8992761136069", nama: "Aqua (330ml)", harga: 2800},
-{barcode: "8992761121300", nama: "Aqua (600ml)", harga: 3800},
-{barcode: "8992695500410", nama: "Aqua galon (19lt)", harga: 21000},
-{barcode: "8992761121607", nama: "Aqua gelas (240ml)", harga: 1000},
-{barcode: "12341", nama: "Arang briket bakar (1kg)", harga: 13000},
-{barcode: "8992753282203", nama: "Ayam Broiler Merah (Ekor)", harga: 55000},
-{barcode: "8992753282204", nama: "Ayam Broiler Putih (Ekor)", harga: 40000},
-{barcode: "12343", nama: "Ayam Kampung (Ekor)", harga: 85000},
-{barcode: "12302", nama: "Bawang bombay (1kg)", harga: 38000},
-{barcode: "12303", nama: "Bawang merah (1kg)", harga: 45000},
-{barcode: "12304", nama: "Bawang putih (1kg)", harga: 45000},
-{barcode: "12344", nama: "Beras Merah (1kg)", harga: 18000},
-{barcode: "12345", nama: "Beras Putih (5kg)", harga: 78000},
-{barcode: "8992772485057", nama: "Bimoli (2lt)", harga: 38000},
-{barcode: "12310", nama: "Buncis (1kg)", harga: 22000},
-{barcode: "8992752011057", nama: "Cimory Yogurt Drink (250ml)", harga: 9500},
-{barcode: "8992761111103", nama: "Coca Cola (1.5lt)", harga: 15500},
-{barcode: "8992761111104", nama: "Fanta (1.5lt)", harga: 15500},
-{barcode: "8992761111105", nama: "Sprite (1.5lt)", harga: 15500},
-{barcode: "8991001111222", nama: "Indomie Goreng Original", harga: 3500},
-{barcode: "8991001111333", nama: "Indomie Soto Spesial", harga: 3200},
-{barcode: "12311", nama: "Jagung manis (1kg)", harga: 15000},
-{barcode: "12312", nama: "Jamur tiram (1kg)", harga: 25000},
-{barcode: "12313", nama: "Jeruk medan (1kg)", harga: 28000},
-{barcode: "12314", nama: "Jeruk nipis (1kg)", harga: 18000},
-{barcode: "8992752011058", nama: "Kanzler Singles Sosis Bakar (65gr)", harga: 9000},
-{barcode: "8992752011059", nama: "Kanzler Singles Sosis Keju (65gr)", harga: 9000},
-{barcode: "12315", nama: "Kangkung (1 ikat)", harga: 3000},
-{barcode: "12316", nama: "Kelapa parut (1 butir)", harga: 10000},
-{barcode: "12317", nama: "Kentang dieng (1kg)", harga: 22000},
-{barcode: "12318", nama: "Kol putih (1kg)", harga: 12000},
-{barcode: "12319", nama: "Labu siam (1kg)", harga: 10000},
-{barcode: "8993333333111", nama: "Minyak Goreng SunCo (2lt)", harga: 36000},
-{barcode: "8994444444222", nama: "Minyak Goreng Tropical (2lt)", harga: 37500},
-{barcode: "8992695500411", nama: "Mizone Cherry Blossom (500ml)", harga: 5500},
-{barcode: "8992695500412", nama: "Mizone Lychee Lemon (500ml)", harga: 5500},
-{barcode: "8992752011060", nama: "Nuget So Good (400gr)", harga: 42000},
-{barcode: "8992752011061", nama: "Nuget Sunny Gold (500gr)", harga: 48000},
-{barcode: "12320", nama: "Sawi hijau (1 ikat)", harga: 4000},
-{barcode: "12321", nama: "Sawi putih (1kg)", harga: 14000},
-{barcode: "12322", nama: "Seledri (100gr)", harga: 5000},
-{barcode: "12323", nama: "Singkong mentega (1kg)", harga: 8000},
-{barcode: "8992753282205", nama: "Sosis Sapi Farmhouse (225gr)", harga: 28000},
-{barcode: "8992753282206", nama: "Sosis Ayam Farmhouse (225gr)", harga: 25000},
-{barcode: "12324", nama: "Susu kurma (250ml)", harga: 12000},
-{barcode: "8992761111110", nama: "Teh Botol Sosro (450ml)", harga: 6500},
-{barcode: "8992761111111", nama: "Teh Pucuk Harum (350ml)", harga: 4000},
-{barcode: "12325", nama: "Timun (1kg)", harga: 12000},
-{barcode: "12326", nama: "Tomat merah (1kg)", harga: 20000},
-{barcode: "12327", nama: "Wortel lokal (1kg)", harga: 15000},
-{barcode: "8992753282207", nama: "Vigo Bakso Sapi (200gr)", harga: 18500},
-{barcode: "8992753282208", nama: "Vigo Sosis Ayam (150gr)", harga: 12000},
-{barcode: "8992753282209", nama: "Vitalia Bakso Sapi (500gr)", harga: 35000},
-{barcode: "8992753282210", nama: "Vitalia Sosis Sapi (375gr)", harga: 32000},
-{barcode: "8992753282211", nama: "Warisan Bakso Sapi Polos (50butir)", harga: 45000},
-{barcode: "8992753282212", nama: "Warisan Sosis Bakar Jumbo", harga: 55000},
-{barcode: "8992753282213", nama: "Yona Bakso Sapi Premium", harga: 65000},
-{barcode: "8992753282214", nama: "Yona Sosis Sapi Cocktail", harga: 48000},
-{barcode: "8992753282215", nama: "Champ Chicken Nugget (250gr)", harga: 22000},
-{barcode: "8992753282216", nama: "Champ Sosis Ayam (75gr)", harga: 8000},
-{barcode: "8992753282217", nama: "Fiesta Chicken Nugget (500gr)", harga: 55000},
-{barcode: "8992753282218", nama: "Fiesta Spicy Wing (500gr)", harga: 68000},
-{barcode: "8992753282219", nama: "So Good Chicken Stick (400gr)", harga: 45000},
-{barcode: "12871", nama: "Kopi Kenangan Mantan (Pet)", harga: 9500},
-{barcode: "12872", nama: "Indomilk Steril (Plain)", harga: 11000},
-{barcode: "12873", nama: "Botol Minum (Tumbler Plastik)", harga: 20000}
-];
-
 let keranjang = [];
-let scanner;
+let scanner, track, flashOn = false, isScanning = false;
 
+// Pastikan data produk terload
 window.onload = () => {
+    if (typeof daftarProduk !== 'undefined') {
+        renderDropdown(daftarProduk);
+    } else {
+        document.getElementById('select-produk').innerHTML = '<option>Gagal memuat produk.js!</option>';
+    }
+};
+
+function renderDropdown(list) {
     const sel = document.getElementById('select-produk');
-    const sorted = [...daftarProduk].sort((a, b) => a.nama.localeCompare(b.nama));
+    sel.innerHTML = '<option value="">-- Pilih Barang (A-Z) --</option>';
+    const sorted = [...list].sort((a, b) => a.nama.localeCompare(b.nama));
     sorted.forEach(p => {
         let o = document.createElement('option');
         o.value = p.barcode;
         o.text = p.nama + " (Rp " + p.harga.toLocaleString() + ")";
         sel.appendChild(o);
     });
-};
+}
 
+// SCANNER & FLASH LOGIC
 function startScanner() {
-    if (scanner) { scanner.stop().then(() => jalankanKamera()).catch(() => jalankanKamera()); } 
-    else { jalankanKamera(); }
+    if (scanner) {
+        scanner.stop().then(() => jalankanKamera()).catch(() => jalankanKamera());
+    } else {
+        jalankanKamera();
+    }
 }
 
 function jalankanKamera() {
     scanner = new Html5Qrcode("reader");
-    scanner.start({ facingMode: "environment" }, { fps: 10, qrbox: 250 }, (txt) => tambahBarang(txt));
+    scanner.start(
+        { facingMode: "environment" }, 
+        { fps: 15, qrbox: 250 }, 
+        (txt) => {
+            if (!isScanning) {
+                tambahBarang(txt);
+                isScanning = true;
+                setTimeout(() => { isScanning = false; }, 2000); // Delay 2 detik antar scan
+            }
+        }
+    ).then(() => {
+        const video = document.querySelector('#reader video');
+        if (video && video.srcObject) {
+            track = video.srcObject.getVideoTracks()[0];
+            const caps = track.getCapabilities();
+            if (caps.torch) document.getElementById('btn-flash').style.display = 'block';
+        }
+    }).catch(err => console.error("Scanner error:", err));
 }
 
+function toggleFlash() {
+    if (!track) return;
+    flashOn = !flashOn;
+    track.applyConstraints({ advanced: [{ torch: flashOn }] });
+    document.getElementById('btn-flash').innerText = flashOn ? "🔦 MATIKAN LAMPU" : "🔦 NYALAKAN LAMPU";
+}
+
+// LOGIKA INPUT BARANG
 function tambahBarang(kode) {
-    const p = daftarProduk.find(item => item.barcode == kode.trim());
+    const cleanKode = kode.trim();
     const msg = document.getElementById('status-msg');
-    if(p) {
-        msg.innerText = "Ditambah: " + p.nama;
-        msg.style.display = "block"; msg.style.background = "#e6ffed"; msg.style.color = "#28a745";
-        const ada = keranjang.find(k => k.barcode === p.barcode);
-        if(ada) { ada.qty += 1; } else { keranjang.unshift({...p, qty: 1}); }
-    } else {
-        msg.innerText = "Barcode " + kode + " Tidak Terdaftar";
-        msg.style.display = "block"; msg.style.background = "#fff0f0"; msg.style.color = "#dc3545";
+    
+    const matches = daftarProduk.filter(item => item.barcode == cleanKode);
+    msg.style.display = "block";
+
+    if (matches.length === 1) {
+        eksekusiTambah(matches[0]);
+        msg.innerText = "OK: " + matches[0].nama;
+        msg.style.background = "#e6ffed"; msg.style.color = "#28a745"; msg.style.borderColor = "#28a745";
+    } 
+    else if (matches.length > 1) {
+        msg.innerText = "ADA " + matches.length + " DATA GANDA! PILIH MANA?";
+        msg.style.background = "#fff3cd"; msg.style.color = "#856404"; msg.style.borderColor = "#ffeeba";
+        renderDropdown(matches);
+        document.getElementById('select-produk').focus();
+    } 
+    else {
+        msg.innerText = "BARCODE [" + cleanKode + "] TIDAK TERDAFTAR";
+        msg.style.background = "#fff0f0"; msg.style.color = "#dc3545"; msg.style.borderColor = "#f5c6cb";
+        
+        setTimeout(() => {
+            const namaManual = prompt("Barang belum terdaftar. Masukkan Nama:");
+            if (namaManual) {
+                const hargaManual = prompt("Masukkan Harga:", "0");
+                eksekusiTambah({
+                    barcode: cleanKode,
+                    nama: "[M] " + namaManual,
+                    harga: parseInt(hargaManual) || 0
+                });
+            }
+        }, 500);
     }
+    setTimeout(() => { msg.style.display = "none"; }, 3000);
+}
+
+function eksekusiTambah(produk) {
+    const ada = keranjang.find(k => k.barcode === produk.barcode && k.nama === produk.nama);
+    if(ada) { ada.qty += 1; } else { keranjang.unshift({...produk, qty: 1}); }
     updateDisplay();
-    setTimeout(() => { msg.style.display = "none"; }, 2000);
 }
 
 function updateDisplay() {
     const list = document.getElementById('keranjang-list');
     if(keranjang.length === 0) {
-        list.innerHTML = "<p style='text-align:center; color:#999;'>Belum ada barang</p>";
+        list.innerHTML = '<p style="text-align:center; color:#999;">Keranjang kosong.</p>';
         document.getElementById('total-harga').innerText = "0";
         return;
     }
@@ -217,11 +181,35 @@ function updateDisplay() {
                 <b>${k.qty}</b>
                 <button class="qty-btn" onclick="updateQty(${i},1)">+</button>
             </div>
-            <div style="width:90px; text-align:right;"><b>${(k.harga*k.qty).toLocaleString()}</b></div>
+            <div style="width:100px; text-align:right; font-weight:bold;">${(k.harga*k.qty).toLocaleString()}</div>
         </div>
     `).join('');
     const total = keranjang.reduce((s, k) => s + (k.harga * k.qty), 0);
     document.getElementById('total-harga').innerText = total.toLocaleString();
+}
+
+function filterCepat() {
+    const kw = document.getElementById('input-cari').value.toLowerCase();
+    const pPas = daftarProduk.find(d => d.barcode === kw);
+    if(pPas) { 
+        tambahBarang(kw); 
+        document.getElementById('input-cari').value = "";
+        return;
+    }
+    const filtered = daftarProduk.filter(d => 
+        d.nama.toLowerCase().includes(kw) || d.barcode.includes(kw)
+    );
+    renderDropdown(filtered);
+}
+
+function tambahViaPilihan() {
+    const v = document.getElementById('select-produk').value;
+    if(v) { 
+        tambahBarang(v); 
+        document.getElementById('select-produk').value = "";
+        document.getElementById('input-cari').value = "";
+        renderDropdown(daftarProduk);
+    }
 }
 
 function updateQty(i, d) {
@@ -230,18 +218,8 @@ function updateQty(i, d) {
     updateDisplay();
 }
 
-function filterCepat() {
-    const v = document.getElementById('input-cari').value;
-    const p = daftarProduk.find(d => d.barcode === v);
-    if(p) { tambahBarang(v); document.getElementById('input-cari').value = ""; }
-}
-
-function tambahViaPilihan() {
-    const v = document.getElementById('select-produk').value;
-    if(v) { tambahBarang(v); document.getElementById('select-produk').value = ""; }
-}
-
 function resetCart() { if(confirm("Kosongkan keranjang?")) { keranjang = []; updateDisplay(); } }
 </script>
+
 </body>
 </html>

@@ -30,7 +30,7 @@ const daftarProduk = [
     harga: 6000
   };
   {
-    barcode: 12346",
+    barcode: 12346,
     nama: "Aice Brown Sugar Boba",
     harga: 6000
   };
@@ -65,7 +65,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 102663",
+    barcode: 102663,
     nama: "Aice Crispy Ball Cookies",
     harga: 5000
   };
@@ -95,7 +95,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 12351",
+    barcode: 12351,
     nama: "Aice Fruizzy Bluberry Youghurt  Stick (70ml)",
     harga: 3000
   };
@@ -105,7 +105,7 @@ const daftarProduk = [
     harga: 2500
   };
   {
-    barcode: 12353",
+    barcode: 12353,
     nama: "Aice Funky Milk",
     harga: 3000
   };
@@ -140,7 +140,7 @@ const daftarProduk = [
     harga: 2000
   };
   {
-    barcode: 12358",
+    barcode: 12358,
     nama: "Aice Milk Cereal Crispy Stick (49ml)",
     harga: 4000
   };
@@ -170,17 +170,17 @@ const daftarProduk = [
     harga: 3000
   };
   {
-    barcode: 102736",
+    barcode: 102736,
     nama: "Aice Mochi Mango (45ml)",
     harga: 3000
   };
   {
-    barcode: 12363",
+    barcode: 12363,
     nama: "Aice Mochi Peach (45ml)",
     harga: 3000
   };
   {
-    barcode: 12345676",
+    barcode: 12345676,
     nama: "Aice Mochi Red Bean premium",
     harga: 5000
   };
@@ -190,12 +190,12 @@ const daftarProduk = [
     harga: 3000
   };
   {
-    barcode: 12345675",
+    barcode: 12345675,
     nama: "Aice Mochi cocolate Premium",
     harga: 5000
   };
   {
-    barcode: 12364",
+    barcode: 12364,
     nama: "Aice Moong Bean Stick (70ml)",
     harga: 4500
   };
@@ -210,7 +210,7 @@ const daftarProduk = [
     harga: 2000
   };
   {
-    barcode: 123456781",
+    barcode: 123456781,
     nama: "Aice Strawberry Cone",
     harga: 7000
   };
@@ -220,7 +220,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 12345671",
+    barcode: 12345671,
     nama: "Aice Strawbery Max Cone",
     harga: 7000
   };
@@ -245,7 +245,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 12367",
+    barcode: 12367,
     nama: "Aice Vanilla Chocolate Cup",
     harga: 4000
   };
@@ -260,7 +260,7 @@ const daftarProduk = [
     harga: 24000
   };
   {
-    barcode: 123689",
+    barcode: 123689,
     nama: "Akumo Chicken Stick (500gr)",
     harga: 25500
   };
@@ -300,7 +300,7 @@ const daftarProduk = [
     harga: 19000
   };
   {
-    barcode: 102665",
+    barcode: 102665,
     nama: "Aqua (1600ml)",
     harga: 6000
   };
@@ -315,7 +315,7 @@ const daftarProduk = [
     harga: 4000
   };
   {
-    barcode: 102664",
+    barcode: 102664,
     nama: "Aqua gelas (200ml)",
     harga: 23000
   };
@@ -335,12 +335,12 @@ const daftarProduk = [
     harga: 28500
   };
   {
-    barcode: 102605",
+    barcode: 102605,
     nama: "Ardena Fisroll Ekonomis (200gr)",
     harga: 12500
   };
   {
-    barcode: 102604",
+    barcode: 102604,
     nama: "Ardena Fisroll Ekonomis(500gr)",
     harga: 24000
   };
@@ -365,7 +365,7 @@ const daftarProduk = [
     harga: 36000
   };
   {
-    barcode: 1234586",
+    barcode: 1234586,
     nama: "Arios Rendang Potong (500gr)",
     harga: 60000
   };
@@ -385,7 +385,7 @@ const daftarProduk = [
     harga: 20000
   };
   {
-    barcode: 12369",
+    barcode: 12369,
     nama: "Asimo Nuget Stik (500gr)",
     harga: 20000
   };
@@ -395,7 +395,7 @@ const daftarProduk = [
     harga: 10000
   };
   {
-    barcode: 12371",
+    barcode: 12371,
     nama: "Asimo Nugget Kombinasi (450gr) Bentuk S",
     harga: 18000
   };
@@ -450,12 +450,12 @@ const daftarProduk = [
     harga: 23500
   };
   {
-    barcode: 102607",
+    barcode: 102607,
     nama: "Baraya Kulit Lumpia (23cm)",
     harga: 6000
   };
   {
-    barcode: 123674",
+    barcode: 123674,
     nama: "Barraya Kulit Pangsit (250gr)",
     harga: 7500
   };
@@ -475,7 +475,7 @@ const daftarProduk = [
     harga: 12000
   };
   {
-    barcode: 123428",
+    barcode: 123428,
     nama: "Belfood Favorite Crunchy Nugget (140gr)",
     harga: 12500
   };
@@ -490,7 +490,7 @@ const daftarProduk = [
     harga: 12000
   };
   {
-    barcode: 12376",
+    barcode: 12376,
     nama: "Belfood Uenaak Nugget Crispy (90gr)",
     harga: 7500
   };
@@ -520,12 +520,12 @@ const daftarProduk = [
     harga: 80500
   };
   {
-    barcode: 12381",
+    barcode: 12381,
     nama: "Beres Sosis Ori (13pcs)",
     harga: 37000
   };
   {
-    barcode: 12382",
+    barcode: 12382,
     nama: "Beres Sosis Ori (7pcs)",
     harga: 37000
   };
@@ -550,12 +550,12 @@ const daftarProduk = [
     harga: 15500
   };
   {
-    barcode: 102742",
+    barcode: 102742,
     nama: "Bernardi Plain Roll (60)",
     harga: 15500
   };
   {
-    barcode: 12383",
+    barcode: 12383,
     nama: "Bernardi Spicy Chicken Wing (380gr)",
     harga: 40000
   };
@@ -590,32 +590,32 @@ const daftarProduk = [
     harga: 12500
   };
   {
-    barcode: 89686386066",
+    barcode: 89686386066,
     nama: "Bumbu Racik Ayam Goreng (26gr)",
     harga: 2000
   };
   {
-    barcode: 89686386462",
+    barcode: 89686386462,
     nama: "Bumbu Racik Ikan Goreng (20gr)",
     harga: 2000
   };
   {
-    barcode: 12386",
+    barcode: 12386,
     nama: "Bumbu Tomyum (75gr)",
     harga: 10000
   };
   {
-    barcode: 102744",
+    barcode: 102744,
     nama: "Bumifood Quick Bites Crab Stik (50gr)",
     harga: 7500
   };
   {
-    barcode: 102745",
+    barcode: 102745,
     nama: "Bumifood Quick Bites Fish Tofu (50gr)",
     harga: 7500
   };
   {
-    barcode: 102746",
+    barcode: 102746,
     nama: "Bumifood Quick Bites Odeng (50gr)",
     harga: 7500
   };
@@ -670,7 +670,7 @@ const daftarProduk = [
     harga: 16000
   };
   {
-    barcode: 102731",
+    barcode: 102731,
     nama: "Cedea Crab Stik (500gr)",
     harga: 30500
   };
@@ -755,7 +755,7 @@ const daftarProduk = [
     harga: 30500
   };
   {
-    barcode: 12389",
+    barcode: 12389,
     nama: "Cedea Kue Ikan Cabe (500gr)",
     harga: 27500
   };
@@ -780,7 +780,7 @@ const daftarProduk = [
     harga: 26000
   };
   {
-    barcode: 12392",
+    barcode: 12392,
     nama: "Cedea Otak-Otak Singapura (1000gr)",
     harga: 54000
   };
@@ -815,7 +815,7 @@ const daftarProduk = [
     harga: 36500
   };
   {
-    barcode: 12387",
+    barcode: 12387,
     nama: "Cedea Sosis Premium Salmon (500gr)",
     harga: 37000
   };
@@ -860,7 +860,7 @@ const daftarProduk = [
     harga: 26000
   };
   {
-    barcode: 12396",
+    barcode: 12396,
     nama: "Champ Chicken Nugget 123 (500gr)",
     harga: 37000
   };
@@ -885,22 +885,22 @@ const daftarProduk = [
     harga: 20000
   };
   {
-    barcode: 1234593",
+    barcode: 1234593,
     nama: "Champ Chicken ball (200gr)",
     harga: 12000
   };
   {
-    barcode: 1234561",
+    barcode: 1234561,
     nama: "Champ Chiken Naget 123 (450gr)",
     harga: 35000
   };
   {
-    barcode: 1234598",
+    barcode: 1234598,
     nama: "Champ Chiken Nugget Stik (900gr)",
     harga: 73000
   };
   {
-    barcode: 12397",
+    barcode: 12397,
     nama: "Champ Crunchy Hotss (300gr)",
     harga: 24000
   };
@@ -920,7 +920,7 @@ const daftarProduk = [
     harga: 40000
   };
   {
-    barcode: 1234562",
+    barcode: 1234562,
     nama: "Champ Nuget Coin (450gr)",
     harga: 35000
   };
@@ -950,7 +950,7 @@ const daftarProduk = [
     harga: 36000
   };
   {
-    barcode: 12398",
+    barcode: 12398,
     nama: "Champ Nugget Chicken Stik (1kg)",
     harga: 71500
   };
@@ -960,12 +960,12 @@ const daftarProduk = [
     harga: 22500
   };
   {
-    barcode: 123401",
+    barcode: 123401,
     nama: "Champ Nugget Coin (500gr)",
     harga: 37000
   };
   {
-    barcode: 123402",
+    barcode: 123402,
     nama: "Champ Nugget Hotzz Level 5 (500gr)",
     harga: 39000
   };
@@ -990,7 +990,7 @@ const daftarProduk = [
     harga: 36000
   };
   {
-    barcode: 123403",
+    barcode: 123403,
     nama: "Champ Sosis (3Pcs)",
     harga: 5000
   };
@@ -1025,7 +1025,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 12385",
+    barcode: 12385,
     nama: "Cimanggis Bakso 77 (50pcs)",
     harga: 16000
   };
@@ -1035,7 +1035,7 @@ const daftarProduk = [
     harga: 17000
   };
   {
-    barcode: 12384",
+    barcode: 12384,
     nama: "Cimanggis Bakso168 (25pcs)",
     harga: 17000
   };
@@ -1055,7 +1055,7 @@ const daftarProduk = [
     harga: 27000
   };
   {
-    barcode: 123407",
+    barcode: 123407,
     nama: "Cimanggis Sbb (50pcs)",
     harga: 60000
   };
@@ -1065,17 +1065,17 @@ const daftarProduk = [
     harga: 19000
   };
   {
-    barcode: 123408",
+    barcode: 123408,
     nama: "Cimanggis Special (50pcs)",
     harga: 19000
   };
   {
-    barcode: 123409",
+    barcode: 123409,
     nama: "Cimanggis Urat (25pcs)",
     harga: 21500
   };
   {
-    barcode: 123406",
+    barcode: 123406,
     nama: "Cireng Kriwil Nyi Iteung",
     harga: 12500
   };
@@ -1100,7 +1100,7 @@ const daftarProduk = [
     harga: 32500
   };
   {
-    barcode: 102726",
+    barcode: 102726,
     nama: "Del Monte Blackpepper Stand (1000gr)",
     harga: 39000
   };
@@ -1115,7 +1115,7 @@ const daftarProduk = [
     harga: 10000
   };
   {
-    barcode: 123412",
+    barcode: 123412,
     nama: "Del Monte Exhot Stand Pouch (500gr)",
     harga: 13500
   };
@@ -1170,7 +1170,7 @@ const daftarProduk = [
     harga: 10000
   };
   {
-    barcode: 123413",
+    barcode: 123413,
     nama: "Del Monte Tomato Stand Pouch (500gr)",
     harga: 10000
   };
@@ -1190,7 +1190,7 @@ const daftarProduk = [
     harga: 6500
   };
   {
-    barcode: 123411",
+    barcode: 123411,
     nama: "Delimax Herbs Sausage (360gr)",
     harga: 45000
   };
@@ -1215,7 +1215,7 @@ const daftarProduk = [
     harga: 46000
   };
   {
-    barcode: 123545",
+    barcode: 123545,
     nama: "Diamond Milk Full Cream (1Ltr)",
     harga: 21000
   };
@@ -1250,37 +1250,37 @@ const daftarProduk = [
     harga: 16500
   };
   {
-    barcode: 123415",
+    barcode: 123415,
     nama: "Dori Fillet (1kg)",
     harga: 41000
   };
   {
-    barcode: 123416",
+    barcode: 123416,
     nama: "Eby Fry Tray",
     harga: 27000
   };
   {
-    barcode: 123417",
+    barcode: 123417,
     nama: "Eco Saos Extra Pedas (1kg)",
     harga: 12000
   };
   {
-    barcode: 1234587",
+    barcode: 1234587,
     nama: "Edmuk Bar Cheese (200gr)",
     harga: 20000
   };
   {
-    barcode: 1234582",
+    barcode: 1234582,
     nama: "Edmuk Bar Veggie (200gr)",
     harga: 18500
   };
   {
-    barcode: 123418",
+    barcode: 123418,
     nama: "Edo Coklat Jumbo (10pcs)",
     harga: 13500
   };
   {
-    barcode: 123419",
+    barcode: 123419,
     nama: "Edo Coklat Mini (20pcs)",
     harga: 17000
   };
@@ -1290,7 +1290,7 @@ const daftarProduk = [
     harga: 13500
   };
   {
-    barcode: 123421",
+    barcode: 123421,
     nama: "Edo Kentang Mini (20pcs)",
     harga: 16500
   };
@@ -1300,27 +1300,27 @@ const daftarProduk = [
     harga: 43000
   };
   {
-    barcode: 123424",
+    barcode: 123424,
     nama: "Edo Susu Jumbo (10pcs)",
     harga: 13500
   };
   {
-    barcode: 123425",
+    barcode: 123425,
     nama: "Edo Susu Mini (20pcs)",
     harga: 17000
   };
   {
-    barcode: 123426",
+    barcode: 123426,
     nama: "Edo Ubi Ungu Jumbo (10pcs)",
     harga: 13000
   };
   {
-    barcode: 123427",
+    barcode: 123427,
     nama: "Edo Ubi Ungu Mini (20pcs)",
     harga: 16500
   };
   {
-    barcode: 123429",
+    barcode: 123429,
     nama: "Fg Rendang Potong (1kg)",
     harga: 115000
   };
@@ -1340,7 +1340,7 @@ const daftarProduk = [
     harga: 49500
   };
   {
-    barcode: 123431",
+    barcode: 123431,
     nama: "Fiesta Cheesy Lover (500gr)",
     harga: 64000
   };
@@ -1390,7 +1390,7 @@ const daftarProduk = [
     harga: 47500
   };
   {
-    barcode: 1234594",
+    barcode: 1234594,
     nama: "Fiesta Kentang Butter Coated (500gr)",
     harga: 28000
   };
@@ -1485,7 +1485,7 @@ const daftarProduk = [
     harga: 7500
   };
   {
-    barcode: 123434",
+    barcode: 123434,
     nama: "Fiesta Rtg Chicken Cheesy Melts (65gr)",
     harga: 7500
   };
@@ -1500,17 +1500,17 @@ const daftarProduk = [
     harga: 50000
   };
   {
-    barcode: 123436",
+    barcode: 123436,
     nama: "Fiesta Spicy Karage (400gr)",
     harga: 44000
   };
   {
-    barcode: 123437",
+    barcode: 123437,
     nama: "Fiesta Spicy Karage (500gr)",
     harga: 57000
   };
   {
-    barcode: 123438",
+    barcode: 123438,
     nama: "Fiesta Spicy Nugget (500gr)",
     harga: 51000
   };
@@ -1560,7 +1560,7 @@ const daftarProduk = [
     harga: 25000
   };
   {
-    barcode: 123441",
+    barcode: 123441,
     nama: "Frozenland Mix Vegetable 3 Way",
     harga: 23000
   };
@@ -1585,7 +1585,7 @@ const daftarProduk = [
     harga: 3000
   };
   {
-    barcode: 123442",
+    barcode: 123442,
     nama: "Fruizzy Lychee Yogu Stick (48ml)",
     harga: 2500
   };
@@ -1610,7 +1610,7 @@ const daftarProduk = [
     harga: 30000
   };
   {
-    barcode: 123443",
+    barcode: 123443,
     nama: "Fura Fishroll (250gr)",
     harga: 15000
   };
@@ -1620,7 +1620,7 @@ const daftarProduk = [
     harga: 23500
   };
   {
-    barcode: 123444",
+    barcode: 123444,
     nama: "Fura Otak-Otak Ikan (500gr)",
     harga: 15500
   };
@@ -1650,12 +1650,12 @@ const daftarProduk = [
     harga: 15500
   };
   {
-    barcode: 123445",
+    barcode: 123445,
     nama: "Geboyku Sosis (500gr)",
     harga: 18000
   };
   {
-    barcode: 123446",
+    barcode: 123446,
     nama: "Geboyku Sosis (730gr)",
     harga: 26000
   };
@@ -1665,12 +1665,12 @@ const daftarProduk = [
     harga: 35500
   };
   {
-    barcode: 123447",
+    barcode: 123447,
     nama: "Geboyku Sosis Merah (1kg)",
     harga: 35500
   };
   {
-    barcode: 123448",
+    barcode: 123448,
     nama: "Geboyku Sosis Putih (1kg)",
     harga: 34000
   };
@@ -1680,12 +1680,12 @@ const daftarProduk = [
     harga: 32000
   };
   {
-    barcode: 1234589",
+    barcode: 1234589,
     nama: "Golden Farm Mix Vegetable (1000gr)",
     harga: 57500
   };
   {
-    barcode: 123449",
+    barcode: 123449,
     nama: "Gourmet Bbq (250gr)",
     harga: 10000
   };
@@ -1745,12 +1745,12 @@ const daftarProduk = [
     harga: 18000
   };
   {
-    barcode: 123452",
+    barcode: 123452,
     nama: "Hemato Nugget Ayam Stiki (400gr)",
     harga: 18500
   };
   {
-    barcode: 123451",
+    barcode: 123451,
     nama: "Hemato Nugget Ayam(1kg)",
     harga: 36000
   };
@@ -1760,12 +1760,12 @@ const daftarProduk = [
     harga: 19000
   };
   {
-    barcode: 123453",
+    barcode: 123453,
     nama: "Hemato Nugget Mix(500gr)",
     harga: 18000
   };
   {
-    barcode: 123454",
+    barcode: 123454,
     nama: "Hemato Sosis Ayam (40pcs)",
     harga: 36000
   };
@@ -1775,17 +1775,17 @@ const daftarProduk = [
     harga: 18000
   };
   {
-    barcode: 123456",
+    barcode: 123456,
     nama: "Hemato Sosis Sapi 1kg (40pcs)",
     harga: 36500
   };
   {
-    barcode: 123458",
+    barcode: 123458,
     nama: "Hemato Sosis Sp (375gr)",
     harga: 15000
   };
   {
-    barcode: 123457",
+    barcode: 123457,
     nama: "Hemato Sosis Sp 1Kg (30pcs)",
     harga: 35500
   };
@@ -1805,7 +1805,7 @@ const daftarProduk = [
     harga: 28500
   };
   {
-    barcode: 123459",
+    barcode: 123459,
     nama: "IDL Baso Dumpling Keju (500gr)",
     harga: 28500
   };
@@ -1830,22 +1830,22 @@ const daftarProduk = [
     harga: 17500
   };
   {
-    barcode: 123461",
+    barcode: 123461,
     nama: "ILM Tempura (500gr)",
     harga: 13000
   };
   {
-    barcode: 89686010015",
+    barcode: 89686010015,
     nama: "Indofood Indomie Ayam Bawang (69gr)",
     harga: 3500
   };
   {
-    barcode: 89686010947",
+    barcode: 89686010947,
     nama: "Indofood Indomie Goreng Special (85gr)",
     harga: 3500
   };
   {
-    barcode: 89686420678",
+    barcode: 89686420678,
     nama: "Indofood Kecap Manis (520ml)",
     harga: 14000
   };
@@ -1855,22 +1855,22 @@ const daftarProduk = [
     harga: 2000
   };
   {
-    barcode: 102739",
+    barcode: 102739,
     nama: "Indomie Nyemek Jogja Rendang (84gr)",
     harga: 3500
   };
   {
-    barcode: 102727",
+    barcode: 102727,
     nama: "Indomie Rasa Soto (7tgr)",
     harga: 3500
   };
   {
-    barcode: 102728",
+    barcode: 102728,
     nama: "Indomie Seblak Jeletot (75gr)",
     harga: 3500
   };
   {
-    barcode: 89686945003",
+    barcode: 89686945003,
     nama: "Indomie Spageti Spicy Bolognese",
     harga: 3500
   };
@@ -1905,12 +1905,12 @@ const daftarProduk = [
     harga: 5000
   };
   {
-    barcode: 102734",
+    barcode: 102734,
     nama: "Joday Double Scoop Chocolate Vanila",
     harga: 5500
   };
   {
-    barcode: 102738",
+    barcode: 102738,
     nama: "Joday Mochi Durian",
     harga: 3500
   };
@@ -1940,7 +1940,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 102733",
+    barcode: 102733,
     nama: "Joyday Crunch Vanila Cookies (60ml)",
     harga: 6500
   };
@@ -1950,12 +1950,12 @@ const daftarProduk = [
     harga: 5000
   };
   {
-    barcode: 102716",
+    barcode: 102716,
     nama: "Joyday Crunchy Double Chocolate",
     harga: 5500
   };
   {
-    barcode: 102723",
+    barcode: 102723,
     nama: "Joyday Crunchy Double Delight",
     harga: 5500
   };
@@ -1990,7 +1990,7 @@ const daftarProduk = [
     harga: 2500
   };
   {
-    barcode: 102748",
+    barcode: 102748,
     nama: "Joyday Fruitti Frizz",
     harga: 4500
   };
@@ -2000,7 +2000,7 @@ const daftarProduk = [
     harga: 2500
   };
   {
-    barcode: 102714",
+    barcode: 102714,
     nama: "Joyday Lalava",
     harga: 3500
   };
@@ -2010,7 +2010,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 102713",
+    barcode: 102713,
     nama: "Joyday Mochi Stawberry",
     harga: 3500
   };
@@ -2020,7 +2020,7 @@ const daftarProduk = [
     harga: 3500
   };
   {
-    barcode: 102722",
+    barcode: 102722,
     nama: "Joyday Vanilla Milkshake",
     harga: 5000
   };
@@ -2170,12 +2170,12 @@ const daftarProduk = [
     harga: 56000
   };
   {
-    barcode: 102657",
+    barcode: 102657,
     nama: "Kanzler Sosis Garlic Frankfurter (300gr)",
     harga: 41000
   };
   {
-    barcode: 123464",
+    barcode: 123464,
     nama: "Kebab Frozen Pahlawan Spicy 10,
     harga: 27500
   };
@@ -2190,7 +2190,7 @@ const daftarProduk = [
     harga: 4996"
   };
   {
-    barcode: 1234019",
+    barcode: 1234019,
     nama: "Kiko saus (1000)",
     harga: 11000
   };
@@ -2210,17 +2210,17 @@ const daftarProduk = [
     harga: 36000
   };
   {
-    barcode: 102642",
+    barcode: 102642,
     nama: "Kimbo Mini Bratwust Black Pepper 10 (500gr)",
     harga: 31000
   };
   {
-    barcode: 102643",
+    barcode: 102643,
     nama: "Kimbo Mini Bratwust Keju 10 (500gr)",
     harga: 31000
   };
   {
-    barcode: 102644",
+    barcode: 102644,
     nama: "Kimbo Sebaguna Cocktai merah Panjang (500gr)",
     harga: 36500
   };
@@ -2255,42 +2255,42 @@ const daftarProduk = [
     harga: 9000
   };
   {
-    barcode: 1234583",
+    barcode: 1234583,
     nama: "Korean Stik  Original (240gr)",
     harga: 42500
   };
   {
-    barcode: 1234584",
+    barcode: 1234584,
     nama: "Korean Stik Pottato (300gr)",
     harga: 46000
   };
   {
-    barcode: 123601",
+    barcode: 123601,
     nama: "Kriwilan kebab",
     harga: 6000
   };
   {
-    barcode: 123465",
+    barcode: 123465,
     nama: "Kulit Dimsum Ori (250gr)",
     harga: 7500
   };
   {
-    barcode: 123466",
+    barcode: 123466,
     nama: "Kulit Dimsum Warna (250gr)",
     harga: 7500
   };
   {
-    barcode: 1234564",
+    barcode: 1234564,
     nama: "Kulit Lumpia Bose",
     harga: 12500
   };
   {
-    barcode: 123467",
+    barcode: 123467,
     nama: "Kulit Lumpia Purnama",
     harga: 6500
   };
   {
-    barcode: 123468",
+    barcode: 123468,
     nama: "Kulitt Pangsit Kotak",
     harga: 4000
   };
@@ -2345,7 +2345,7 @@ const daftarProduk = [
     harga: 27000
   };
   {
-    barcode: 102632",
+    barcode: 102632,
     nama: "Lewis Sambal Tempong (200gr)",
     harga: 16000
   };
@@ -2365,7 +2365,7 @@ const daftarProduk = [
     harga: 12500
   };
   {
-    barcode: 102631",
+    barcode: 102631,
     nama: "Lewis tomat pouch (200gr)",
     harga: 6500
   };
@@ -2390,7 +2390,7 @@ const daftarProduk = [
     harga: 21000
   };
   {
-    barcode: 123471",
+    barcode: 123471,
     nama: "Maestro Saus Mayo (500gr)",
     harga: 12000
   };
@@ -2400,7 +2400,7 @@ const daftarProduk = [
     harga: 9000
   };
   {
-    barcode: 102719",
+    barcode: 102719,
     nama: "Maestro Thousand Island Stand (1000gr)",
     harga: 32500
   };
@@ -2410,17 +2410,17 @@ const daftarProduk = [
     harga: 15500
   };
   {
-    barcode: 102633",
+    barcode: 102633,
     nama: "Mamasuka Chicken Wings Cheese Buldak (200gr)",
     harga: 28500
   };
   {
-    barcode: 102634",
+    barcode: 102634,
     nama: "Mamasuka Chicken Wings Korean Buldak (200gr)",
     harga: 28500
   };
   {
-    barcode: 123456782",
+    barcode: 123456782,
     nama: "Mamasuka Naget Ori (400gr)",
     harga: 35500
   };
@@ -2475,7 +2475,7 @@ const daftarProduk = [
     harga: 32000
   };
   {
-    barcode: 123473",
+    barcode: 123473,
     nama: "Max Shoestring French Fries (2,5kg)",
     harga: 72000
   };
@@ -2505,7 +2505,7 @@ const daftarProduk = [
     harga: 13500
   };
   {
-    barcode: 102661",
+    barcode: 102661,
     nama: "Mazzoni Mayo Biru kg",
     harga: 24000
   };
@@ -2515,7 +2515,7 @@ const daftarProduk = [
     harga: 27000
   };
   {
-    barcode: 123474",
+    barcode: 123474,
     nama: "Mazzoni Red Hot (1kg)",
     harga: 18000
   };
@@ -2545,7 +2545,7 @@ const daftarProduk = [
     harga: 9000
   };
   {
-    barcode: 1234755",
+    barcode: 1234755,
     nama: "Mazzoni Teriyaki (1kg)",
     harga: 28000
   };
@@ -2560,12 +2560,12 @@ const daftarProduk = [
     harga: 22500
   };
   {
-    barcode: 89686023787",
+    barcode: 89686023787,
     nama: "Mie Goreng Sakura (60gr)",
     harga: 2500
   };
   {
-    barcode: 89686023039",
+    barcode: 89686023039,
     nama: "Mie Sakura Seblak Jeletot (60gr)",
     harga: 2500
   };
@@ -2585,17 +2585,17 @@ const daftarProduk = [
     harga: 16500
   };
   {
-    barcode: 102729",
+    barcode: 102729,
     nama: "Mirea Baso Salmon (500gr)",
     harga: 25000
   };
   {
-    barcode: 102751",
+    barcode: 102751,
     nama: "Mirea Baso udang (200gr)",
     harga: 12000
   };
   {
-    barcode: 102656",
+    barcode: 102656,
     nama: "Mirea Cumi Flower (200gr)",
     harga: 17000
   };
@@ -2605,7 +2605,7 @@ const daftarProduk = [
     harga: 12000
   };
   {
-    barcode: 102669",
+    barcode: 102669,
     nama: "Mirea Dumpling Ayam (500gr)",
     harga: 27000
   };
@@ -2625,7 +2625,7 @@ const daftarProduk = [
     harga: 13500
   };
   {
-    barcode: 201379624",
+    barcode: 201379624,
     nama: "Mirea Fish Roll (500gr)",
     harga: 24500
   };
@@ -2640,12 +2640,12 @@ const daftarProduk = [
     harga: 20500
   };
   {
-    barcode: 102655",
+    barcode: 102655,
     nama: "Mirea Otak-Otak Ikan (200gr)",
     harga: 11000
   };
   {
-    barcode: 102684",
+    barcode: 102684,
     nama: "Mirea Salmon Ball (200gr)",
     harga: 17000
   };
@@ -2655,12 +2655,12 @@ const daftarProduk = [
     harga: 26000
   };
   {
-    barcode: 102658",
+    barcode: 102658,
     nama: "Mister Max Otak-Otak (250gr)",
     harga: 13000
   };
   {
-    barcode: 89970175629",
+    barcode: 89970175629,
     nama: "Mister Max Sosis Bakar Ayam 500gr",
     harga: 26000
   };
@@ -2670,7 +2670,7 @@ const daftarProduk = [
     harga: 26000
   };
   {
-    barcode: 102659",
+    barcode: 102659,
     nama: "Mister Max sosis coccktai merah (500gr)",
     harga: 36000
   };
@@ -2735,7 +2735,7 @@ const daftarProduk = [
     harga: 30000
   };
   {
-    barcode: 123456786",
+    barcode: 123456786,
     nama: "Mitraku Dumpling Aneka Rasa (250gr)",
     harga: 16500
   };
@@ -2750,7 +2750,7 @@ const daftarProduk = [
     harga: 55000
   };
   {
-    barcode: 1234599",
+    barcode: 1234599,
     nama: "Mitraku Dumpling Ayam (250gr)",
     harga: 15000
   };
@@ -2760,7 +2760,7 @@ const daftarProduk = [
     harga: 55000
   };
   {
-    barcode: 123481",
+    barcode: 123481,
     nama: "Mitraku Dumpling Bolognese (1kg)",
     harga: 53000
   };
@@ -2785,7 +2785,7 @@ const daftarProduk = [
     harga: 55000
   };
   {
-    barcode: 123484",
+    barcode: 123484,
     nama: "Mitraku Dumpling Keju (250gr)",
     harga: 15000
   };
@@ -2835,7 +2835,7 @@ const daftarProduk = [
     harga: 23000
   };
   {
-    barcode: 123489",
+    barcode: 123489,
     nama: "Mitraku Fish Tofu (1kg)",
     harga: 56000
   };
@@ -2845,7 +2845,7 @@ const daftarProduk = [
     harga: 55000
   };
   {
-    barcode: 123492",
+    barcode: 123492,
     nama: "Mitraku Scallop (1kg)",
     harga: 40000
   };
@@ -2870,7 +2870,7 @@ const daftarProduk = [
     harga: 48500
   };
   {
-    barcode: 102747",
+    barcode: 102747,
     nama: "Mitraku crab stik (250gr)",
     harga: 17000
   };
@@ -2920,12 +2920,12 @@ const daftarProduk = [
     harga: 38500
   };
   {
-    barcode: 123496",
+    barcode: 123496,
     nama: "Mydble Shoestring (500gr)",
     harga: 20500
   };
   {
-    barcode: 123497",
+    barcode: 123497,
     nama: "Mydble Shoestring Transp (2,5kg)",
     harga: 92500
   };
@@ -2935,7 +2935,7 @@ const daftarProduk = [
     harga: 28000
   };
   {
-    barcode: 123499",
+    barcode: 123499,
     nama: "Nori Rumput Laut Mamasuka (250gr)",
     harga: 12500
   };
@@ -2945,7 +2945,7 @@ const daftarProduk = [
     harga: 23500
   };
   {
-    barcode: 123501",
+    barcode: 123501,
     nama: "Okey Burger Mini Daging Sapi & Ayam (280gr)",
     harga: 10500
   };
@@ -3025,7 +3025,7 @@ const daftarProduk = [
     harga: 62000
   };
   {
-    barcode: 123502",
+    barcode: 123502,
     nama: "Pak Kumiz Ts25 (25pcs)",
     harga: 38000
   };
@@ -3035,22 +3035,22 @@ const daftarProduk = [
     harga: 15000
   };
   {
-    barcode: 102724",
+    barcode: 102724,
     nama: "Palmia Margarin (200gr)",
     harga: 7500
   };
   {
-    barcode: 123673",
+    barcode: 123673,
     nama: "Panglima Bakso (50pcs)",
     harga: 27500
   };
   {
-    barcode: 102628",
+    barcode: 102628,
     nama: "Pelangi Donat Mini 20 (500gr)",
     harga: 18500
   };
   {
-    barcode: 123462",
+    barcode: 123462,
     nama: "Pelangi Jelly (500gr)",
     harga: 8000
   };
@@ -3080,7 +3080,7 @@ const daftarProduk = [
     harga: 15000
   };
   {
-    barcode: 102683",
+    barcode: 102683,
     nama: "Pembelian Aset",
     harga: -"
   };
@@ -3115,7 +3115,7 @@ const daftarProduk = [
     harga: 43000
   };
   {
-    barcode: 123455",
+    barcode: 123455,
     nama: "Perfectio Chicken Skin (300gr)",
     harga: 26500
   };
@@ -3125,12 +3125,12 @@ const daftarProduk = [
     harga: 10000
   };
   {
-    barcode: 102637",
+    barcode: 102637,
     nama: "Perfectio Nugget Vanfood (500gr)",
     harga: 18000
   };
   {
-    barcode: 102735",
+    barcode: 102735,
     nama: "Perfectio Spicy Wings (450gr)",
     harga: 45000
   };
@@ -3175,12 +3175,12 @@ const daftarProduk = [
     harga: 14500
   };
   {
-    barcode: 102732",
+    barcode: 102732,
     nama: "Qarmel Beef Slice Teriyaki (500gr)",
     harga: 59000
   };
   {
-    barcode: 102606",
+    barcode: 102606,
     nama: "Qarmel Beef Slice Yoshinoya(500gr)",
     harga: 57000
   };
@@ -3190,7 +3190,7 @@ const daftarProduk = [
     harga: 24000
   };
   {
-    barcode: 123661",
+    barcode: 123661,
     nama: "Qarmel Kebab Spicy (10pcs)",
     harga: 25500
   };
@@ -3270,7 +3270,7 @@ const daftarProduk = [
     harga: 1000
   };
   {
-    barcode: 123456788",
+    barcode: 123456788,
     nama: "Rojolele Beras (5kg)",
     harga: 70000
   };
@@ -3370,7 +3370,7 @@ const daftarProduk = [
     harga: 26500
   };
   {
-    barcode: 102737",
+    barcode: 102737,
     nama: "Sakana Kekian (500gr)",
     harga: 29000
   };
@@ -3380,7 +3380,7 @@ const daftarProduk = [
     harga: 25000
   };
   {
-    barcode: 12265",
+    barcode: 12265,
     nama: "Sakana Otak-Otak (250gr)",
     harga: 12500
   };
@@ -3395,7 +3395,7 @@ const daftarProduk = [
     harga: 25000
   };
   {
-    barcode: 123456787",
+    barcode: 123456787,
     nama: "Sakana Pempek Selam Kecil (500gr)",
     harga: 30000
   };
@@ -3475,7 +3475,7 @@ const daftarProduk = [
     harga: 18500
   };
   {
-    barcode: 123504",
+    barcode: 123504,
     nama: "Salam Scalop Ayam (500gr)",
     harga: 20000
   };
@@ -3500,7 +3500,7 @@ const daftarProduk = [
     harga: 17500
   };
   {
-    barcode: 123506",
+    barcode: 123506,
     nama: "Salam Sosis Ayam Merah 40 (1kg)",
     harga: 35000
   };
@@ -3535,7 +3535,7 @@ const daftarProduk = [
     harga: 10500
   };
   {
-    barcode: 123507",
+    barcode: 123507,
     nama: "Saori Saos Teriyaki (1ltr)",
     harga: 57000
   };
@@ -3595,27 +3595,27 @@ const daftarProduk = [
     harga: 17500
   };
   {
-    barcode: 123521",
+    barcode: 123521,
     nama: "So Eco Sosis Merah (750gr)",
     harga: 25500
   };
   {
-    barcode: 123524",
+    barcode: 123524,
     nama: "Sumpit Import",
     harga: 9000
   };
   {
-    barcode: 102646",
+    barcode: 102646,
     nama: "Sumpit Inti Bumi Kulit Dimsum 8cm",
     harga: 7500
   };
   {
     barcode: 102660,
-    nama: "Sumpit Inti Bumi Kulit Pangsit 9x9",
+    nama: "Sumpit Inti Bumi Kulit Pangsit 9x9,
     harga: 7500
   };
   {
-    barcode: 123512",
+    barcode: 123512,
     nama: "Sunfish Bakso Ikan isi 50 (500gr)",
     harga: 25000
   };
@@ -3650,12 +3650,12 @@ const daftarProduk = [
     harga: 16000
   };
   {
-    barcode: 35790339",
+    barcode: 35790339,
     nama: "Sunfish Crab Stick (500gr)",
     harga: 48000
   };
   {
-    barcode: 123517",
+    barcode: 123517,
     nama: "Sunfish Crab Stik (500gr)",
     harga: 28000
   };
@@ -3670,7 +3670,7 @@ const daftarProduk = [
     harga: 27000
   };
   {
-    barcode: 123513",
+    barcode: 123513,
     nama: "Sunfish Dumpling Matcha",
     harga: 29000
   };
@@ -3715,7 +3715,7 @@ const daftarProduk = [
     harga: 29000
   };
   {
-    barcode: 123516",
+    barcode: 123516,
     nama: "Sunfish Kue Ikan (500gr)",
     harga: 23000
   };
@@ -3740,7 +3740,7 @@ const daftarProduk = [
     harga: 22000
   };
   {
-    barcode: 123518",
+    barcode: 123518,
     nama: "Sunfish Otak-Otak 40' (500gr)",
     harga: 23000
   };
@@ -3780,37 +3780,37 @@ const daftarProduk = [
     harga: 13500
   };
   {
-    barcode: 123525",
+    barcode: 123525,
     nama: "Tamma Daging Kebab (2kg) TT",
     harga: 123000
   };
   {
-    barcode: 123526",
+    barcode: 123526,
     nama: "Tamma Daging Kebab Sapi (1kg)",
     harga: 61500
   };
   {
-    barcode: 123527",
+    barcode: 123527,
     nama: "Tamma Daging Kebab Sapi (2kg) DT",
     harga: 127000
   };
   {
-    barcode: 5161010212",
+    barcode: 5161010212,
     nama: "Tamma Kebab Choco Caramel (10pcs)",
     harga: 27500
   };
   {
-    barcode: 5161010211",
+    barcode: 5161010211,
     nama: "Tamma Kebab Original (10pcs)",
     harga: 26000
   };
   {
-    barcode: 123528",
+    barcode: 123528,
     nama: "Tamma Kebab Spicy (10pcs)",
     harga: 27000
   };
   {
-    barcode: 123529",
+    barcode: 123529,
     nama: "Tamma Maryam Coklat (5pcs)",
     harga: 24000
   };
@@ -3820,32 +3820,32 @@ const daftarProduk = [
     harga: 16500
   };
   {
-    barcode: 123531",
+    barcode: 123531,
     nama: "Tamma Tortilla Besar (25cm)",
     harga: 27000
   };
   {
-    barcode: 123532",
+    barcode: 123532,
     nama: "Tamma Tortilla Catering (17cm)",
     harga: 20000
   };
   {
-    barcode: 123533",
+    barcode: 123533,
     nama: "Tamma Tortilla Catering Premium",
     harga: 20000
   };
   {
-    barcode: 123534",
+    barcode: 123534,
     nama: "Tamma Tortilla Mini (20cm)",
     harga: 22500
   };
   {
-    barcode: 123535",
+    barcode: 123535,
     nama: "Tamma Tortilla Sedang (23cm)",
     harga: 24500
   };
   {
-    barcode: 123536",
+    barcode: 123536,
     nama: "Tasty  Max Gold Brats Cocktail (500gr)",
     harga: 35500
   };
@@ -3870,12 +3870,12 @@ const daftarProduk = [
     harga: 33000
   };
   {
-    barcode: 123538",
+    barcode: 123538,
     nama: "Tasty Meat Slice Lemak (450gr)",
     harga: 55000
   };
   {
-    barcode: 123537",
+    barcode: 123537,
     nama: "Tasty Meat Suki Low Fat (450gr)",
     harga: 54000
   };
@@ -3925,7 +3925,7 @@ const daftarProduk = [
     harga: 8500
   };
   {
-    barcode: 102693",
+    barcode: 102693,
     nama: "Tepung Cakra Kembar (1kg)",
     harga: 13000
   };
@@ -3960,27 +3960,27 @@ const daftarProduk = [
     harga: 5000
   };
   {
-    barcode: 123541",
+    barcode: 123541,
     nama: "Tusuk Pentol Koki Panda (180gr)",
     harga: 5000
   };
   {
-    barcode: 123542",
+    barcode: 123542,
     nama: "Tusuk Sate Koki Panda (400gr)",
     harga: 10000
   };
   {
-    barcode: 123543",
+    barcode: 123543,
     nama: "Udang Kupas \"\"S\"\" (500gr)",
     harga: 42500
   };
   {
-    barcode: 123544",
+    barcode: 123544,
     nama: "Uenaak Coin Nugget UMM (250gr)",
     harga: 14000
   };
   {
-    barcode: 102743",
+    barcode: 102743,
     nama: "Umiami Ayam Udang Kribo (270gr)",
     harga: 22000
   };
@@ -4005,7 +4005,7 @@ const daftarProduk = [
     harga: 14000
   };
   {
-    barcode: 102668",
+    barcode: 102668,
     nama: "Umiami Minipao Pisang (500gr)",
     harga: 8500
   };
@@ -4025,7 +4025,7 @@ const daftarProduk = [
     harga: 19500
   };
   {
-    barcode: 123547",
+    barcode: 123547,
     nama: "Umiami Siomay (60pcs)",
     harga: 41500
   };
@@ -4045,12 +4045,12 @@ const daftarProduk = [
     harga: 18500
   };
   {
-    barcode: 123548",
+    barcode: 123548,
     nama: "Vigo Bakso Mercon (50pcs)",
     harga: 31000
   };
   {
-    barcode: 123549",
+    barcode: 123549,
     nama: "Vigo Bakso Sapi (50pcs)",
     harga: 25500
   };
@@ -4065,22 +4065,22 @@ const daftarProduk = [
     harga: 9000
   };
   {
-    barcode: 102691",
+    barcode: 102691,
     nama: "Vigo Beef Burger 20,
     harga: 10000
   };
   {
-    barcode: 102692",
+    barcode: 102692,
     nama: "Vigo Kornet Ayam",
     harga: 15000
   };
   {
-    barcode: 102703",
+    barcode: 102703,
     nama: "Vigo Sosis Ayam Kombinasi 15 (375gr)",
     harga: 18000
   };
   {
-    barcode: 102645",
+    barcode: 102645,
     nama: "Vigo Sosis Ayam Ulir Panjang 15 (500gr)",
     harga: 18000
   };
@@ -4110,7 +4110,7 @@ const daftarProduk = [
     harga: 5000
   };
   {
-    barcode: 12304",
+    barcode: 12304,
     nama: "Vit mineral (200ml)",
     harga: 23000
   };
@@ -4130,7 +4130,7 @@ const daftarProduk = [
     harga: 11000
   };
   {
-    barcode: 102741",
+    barcode: 102741,
     nama: "Vitalia Shoestring kg (1000gr)",
     harga: 28000
   };
@@ -4140,22 +4140,22 @@ const daftarProduk = [
     harga: 15000
   };
   {
-    barcode: 123553",
+    barcode: 123553,
     nama: "Warisan Bakso AB (50pcs)",
     harga: 28000
   };
   {
-    barcode: 123554",
+    barcode: 123554,
     nama: "Warisan Bakso AB BMS (25pcs)",
     harga: 22000
   };
   {
-    barcode: 123555",
+    barcode: 123555,
     nama: "Warisan Bakso AB BMSK (50pcs)",
     harga: 22000
   };
   {
-    barcode: 123551",
+    barcode: 123551,
     nama: "Warisan Bakso Ayam (50pcs)",
     harga: 25000
   };
@@ -4165,27 +4165,27 @@ const daftarProduk = [
     harga: 18500
   };
   {
-    barcode: 35400001",
+    barcode: 35400001,
     nama: "Warisan Bakso Sapi (600gr)",
     harga: 22000
   };
   {
-    barcode: 123556",
+    barcode: 123556,
     nama: "Warisan Bakso Super M (50pcs)",
     harga: 25000
   };
   {
-    barcode: 123557",
+    barcode: 123557,
     nama: "Warisan Bakso Urat (50pcs)",
     harga: 27000
   };
   {
-    barcode: 123558",
+    barcode: 123558,
     nama: "Yogurt Stick Long",
     harga: 12000
   };
   {
-    barcode: 123559",
+    barcode: 123559,
     nama: "Yogurt Stick Short",
     harga: 11500
   };
@@ -4200,12 +4200,12 @@ const daftarProduk = [
     harga: 35000
   };
   {
-    barcode: 123561",
+    barcode: 123561,
     nama: "Yona Sosis Bakar Jumbo (500gr)",
     harga: 35000
   };
   {
-    barcode: 123562",
+    barcode: 123562,
     nama: "Yona Sosis SP Bakar Mini (500gr)",
     harga: 36000
   };
@@ -4225,7 +4225,7 @@ const daftarProduk = [
     harga: 18500
   };
   {
-    barcode: 102647",
+    barcode: 102647,
     nama: "Zaitun Crispy Nuget (400gr)",
     harga: 34500
   };
@@ -4255,7 +4255,7 @@ const daftarProduk = [
     harga: 39000
   };
   {
-    barcode: 102717",
+    barcode: 102717,
     nama: "Zaitun chicken Pok-POk (500gr)",
     harga: 40000
   }

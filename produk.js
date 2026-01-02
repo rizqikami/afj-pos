@@ -1,4 +1,4 @@
-[
+const daftarProduk = [
   {
     "barcode": "711844110144",
     "nama": "ABC Kecap Manis Pouch (300gr)",
@@ -4259,4 +4259,4 @@
     "nama": "Zaitun chicken Pok-POk (500gr)",
     " harga ": " 40,000 "
   }
-]
+];

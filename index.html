@@ -3,39 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AFJ POS System Pro</title>
+    <title>Sistem POS AFJ</title>
     <script src="https://unpkg.com/html5-qrcode"></script>
     <style>
         :root { --primary: #1a73e8; --success: #28a745; --danger: #dc3545; --warning: #fbbc04; }
         body { font-family: 'Segoe UI', Tahoma, sans-serif; margin: 0; padding: 10px; background-color: #f0f2f5; color: #333; }
+        
+        /* Header Customization */
         .header-title { text-align: center; color: var(--primary); font-size: 1.4em; font-weight: bold; margin: 10px 0; text-transform: uppercase; }
+        .copyleft { font-size: 0.45em; color: #666; font-weight: normal; margin-top: 2px; text-transform: none; display: block; }
+        
         .panel { background: white; padding: 15px; border-radius: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 15px; }
         
         /* Scanner UI */
         #reader { width: 100%; border-radius: 8px; overflow: hidden; background: #000; }
-        .btn-cam { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin: 10px 0; font-size: 16px; }
+        .btn-cam { width: 100%; padding: 15px; background: var(--primary); color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin: 10px 0; font-size: 16px; transition: 0.3s; }
         #btn-flash { width: 100%; padding: 12px; background: var(--warning); color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-bottom: 15px; display: none; }
         
-        /* Notifikasi Stabil (Anti-Goyang) */
         #status-msg { text-align: center; padding: 10px; border-radius: 8px; font-weight: bold; margin-bottom: 10px; display: none; border: 2px solid transparent; min-height: 24px; }
         
-        /* Input & Dropdown */
-        input, select { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; }
+        input, select { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 16px; transition: 0.3s; }
         input:focus { border-color: var(--primary); outline: none; }
 
         /* Keranjang */
         .cart-item { display: flex; justify-content: space-between; align-items: center; padding: 12px 0; border-bottom: 1px solid #eee; }
         .qty-btn { width: 35px; height: 35px; border-radius: 50%; border: 1px solid #ddd; background: white; font-weight: bold; cursor: pointer; display: flex; align-items: center; justify-content: center; }
         .total-box { font-size: 2em; font-weight: bold; color: var(--primary); text-align: right; padding-top: 15px; border-top: 3px solid #eee; margin-top: 10px; }
+        
+        .btn-action { width: 100%; padding: 15px; border: none; border-radius: 8px; margin-top: 10px; font-weight: bold; cursor: pointer; font-size: 15px; }
     </style>
 </head>
 <body>
 
-<div class="header-title">🛒 AFJ POS SYSTEM</div>
+<div class="header-title">
+    🛒 SISTEM POS AFJ
+    <span class="copyleft">copyleft by AK Jababeka</span>
+</div>
 
 <div class="panel">
     <div id="reader"></div>
-    <button class="btn-cam" onclick="startScanner()">📸 BUKA SCANNER</button>
+    <button id="btn-scan-toggle" class="btn-cam" onclick="toggleScanner()">📸 BUKA SCANNER</button>
     <button id="btn-flash" onclick="toggleFlash()">🔦 NYALAKAN LAMPU</button>
     
     <div id="status-msg"></div>
@@ -54,7 +61,14 @@
         <p style="text-align:center; color:#999;">Belum ada barang di keranjang.</p>
     </div>
     <div class="total-box">Rp <span id="total-harga">0</span></div>
-    <button onclick="resetCart()" style="width:100%; padding:15px; background:var(--danger); color:white; border:none; border-radius:8px; margin-top:15px; font-weight:bold; cursor:pointer;">KOSONGKAN KERANJANG</button>
+    
+    <button id="btn-wa" class="btn-action" onclick="kirimWhatsApp()" style="background:var(--success); color:white; display:none;">
+        💬 KIRIM KE WHATSAPP
+    </button>
+    
+    <button class="btn-action" onclick="resetCart()" style="background:var(--danger); color:white;">
+        KOSONGKAN KERANJANG
+    </button>
 </div>
 
 <script src="produk.js?v=1.0"></script>
@@ -63,7 +77,6 @@
 let keranjang = [];
 let scanner, track, flashOn = false, isScanning = false;
 
-// Pastikan data produk terload
 window.onload = () => {
     if (typeof daftarProduk !== 'undefined') {
         renderDropdown(daftarProduk);
@@ -84,12 +97,24 @@ function renderDropdown(list) {
     });
 }
 
-// SCANNER & FLASH LOGIC
-function startScanner() {
-    if (scanner) {
-        scanner.stop().then(() => jalankanKamera()).catch(() => jalankanKamera());
+// TOGGLE SCANNER & CAMERA LOGIC
+function toggleScanner() {
+    const btn = document.getElementById('btn-scan-toggle');
+    const btnFlash = document.getElementById('btn-flash');
+
+    if (scanner && scanner.isScanning()) {
+        scanner.stop().then(() => {
+            btn.innerHTML = "📸 BUKA SCANNER";
+            btn.style.background = "var(--primary)";
+            btnFlash.style.display = 'none';
+            btnFlash.innerText = "🔦 NYALAKAN LAMPU";
+            flashOn = false;
+            track = null;
+        }).catch(err => console.error(err));
     } else {
         jalankanKamera();
+        btn.innerHTML = "🛑 TUTUP SCANNER";
+        btn.style.background = "var(--danger)";
     }
 }
 
@@ -102,7 +127,7 @@ function jalankanKamera() {
             if (!isScanning) {
                 tambahBarang(txt);
                 isScanning = true;
-                setTimeout(() => { isScanning = false; }, 2000); // Delay 2 detik antar scan
+                setTimeout(() => { isScanning = false; }, 2000);
             }
         }
     ).then(() => {
@@ -112,7 +137,11 @@ function jalankanKamera() {
             const caps = track.getCapabilities();
             if (caps.torch) document.getElementById('btn-flash').style.display = 'block';
         }
-    }).catch(err => console.error("Scanner error:", err));
+    }).catch(err => {
+        console.error(err);
+        document.getElementById('btn-scan-toggle').innerHTML = "📸 BUKA SCANNER";
+        document.getElementById('btn-scan-toggle').style.background = "var(--primary)";
+    });
 }
 
 function toggleFlash() {
@@ -122,10 +151,11 @@ function toggleFlash() {
     document.getElementById('btn-flash').innerText = flashOn ? "🔦 MATIKAN LAMPU" : "🔦 NYALAKAN LAMPU";
 }
 
-// LOGIKA INPUT BARANG
+// LOGIKA TAMBAH BARANG
 function tambahBarang(kode) {
     const cleanKode = kode.trim();
     const msg = document.getElementById('status-msg');
+    const inputCari = document.getElementById('input-cari');
     
     const matches = daftarProduk.filter(item => item.barcode == cleanKode);
     msg.style.display = "block";
@@ -136,26 +166,23 @@ function tambahBarang(kode) {
         msg.style.background = "#e6ffed"; msg.style.color = "#28a745"; msg.style.borderColor = "#28a745";
     } 
     else if (matches.length > 1) {
-        msg.innerText = "ADA " + matches.length + " DATA GANDA! PILIH MANA?";
+        msg.innerText = "DATA GANDA! PILIH MANUAL";
         msg.style.background = "#fff3cd"; msg.style.color = "#856404"; msg.style.borderColor = "#ffeeba";
         renderDropdown(matches);
         document.getElementById('select-produk').focus();
     } 
     else {
-        msg.innerText = "BARCODE [" + cleanKode + "] TIDAK TERDAFTAR";
+        // Logika Baru: Arahkan ke input pencarian jika barang tidak ada
+        msg.innerText = "BARCODE [" + cleanKode + "] TIDAK ADA";
         msg.style.background = "#fff0f0"; msg.style.color = "#dc3545"; msg.style.borderColor = "#f5c6cb";
         
-        setTimeout(() => {
-            const namaManual = prompt("Barang belum terdaftar. Masukkan Nama:");
-            if (namaManual) {
-                const hargaManual = prompt("Masukkan Harga:", "0");
-                eksekusiTambah({
-                    barcode: cleanKode,
-                    nama: "[M] " + namaManual,
-                    harga: parseInt(hargaManual) || 0
-                });
-            }
-        }, 500);
+        inputCari.focus();
+        inputCari.placeholder = "Cari nama untuk barcode " + cleanKode;
+        inputCari.style.border = "2px solid var(--danger)";
+        setTimeout(() => { 
+            inputCari.style.border = "1px solid #ddd"; 
+            inputCari.placeholder = "Ketik 'Aice' atau scan...";
+        }, 3000);
     }
     setTimeout(() => { msg.style.display = "none"; }, 3000);
 }
@@ -168,11 +195,16 @@ function eksekusiTambah(produk) {
 
 function updateDisplay() {
     const list = document.getElementById('keranjang-list');
+    const btnWA = document.getElementById('btn-wa');
+
     if(keranjang.length === 0) {
         list.innerHTML = '<p style="text-align:center; color:#999;">Keranjang kosong.</p>';
         document.getElementById('total-harga').innerText = "0";
+        btnWA.style.display = 'none';
         return;
     }
+
+    btnWA.style.display = 'block';
     list.innerHTML = keranjang.map((k, i) => `
         <div class="cart-item">
             <div style="flex:1"><b>${k.nama}</b><br><small>Rp ${k.harga.toLocaleString()}</small></div>
@@ -184,8 +216,29 @@ function updateDisplay() {
             <div style="width:100px; text-align:right; font-weight:bold;">${(k.harga*k.qty).toLocaleString()}</div>
         </div>
     `).join('');
+    
     const total = keranjang.reduce((s, k) => s + (k.harga * k.qty), 0);
     document.getElementById('total-harga').innerText = total.toLocaleString();
+}
+
+// FITUR WHATSAPP
+function kirimWhatsApp() {
+    if (keranjang.length === 0) return;
+    const noWA = "6281234567890"; // GANTI DENGAN NOMOR ANDA
+    
+    let pesan = `*STRUK BELANJA - SISTEM POS AFJ*\n`;
+    pesan += `------------------------------------------\n`;
+    keranjang.forEach((item, index) => {
+        pesan += `${index + 1}. *${item.nama}*\n`;
+        pesan += `   ${item.qty} x Rp ${item.harga.toLocaleString()} = *Rp ${(item.qty * item.harga).toLocaleString()}*\n`;
+    });
+    const total = keranjang.reduce((s, k) => s + (k.harga * k.qty), 0);
+    pesan += `------------------------------------------\n`;
+    pesan += `*TOTAL: Rp ${total.toLocaleString()}*\n`;
+    pesan += `------------------------------------------\n`;
+    pesan += `Tgl: ${new Date().toLocaleString('id-ID')}`;
+
+    window.open(`https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`, '_blank');
 }
 
 function filterCepat() {

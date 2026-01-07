@@ -227,7 +227,7 @@ function kirimWhatsApp() {
     if (keranjang.length === 0) return;
     const noWA = "6283815898554"; // GANTI DENGAN NOMOR WA TUJUAN
     
-    let pesan = `*STRUK BELANJA - SISTEM POS AFJ*\n`;
+    let pesan = `*STRUK PESANAN BELANJA - SISTEM POS AFJ*\n`;
     pesan += `------------------------------------------\n`;
     keranjang.forEach((item, index) => {
         pesan += `${index + 1}. *${item.nama}*\n`;
